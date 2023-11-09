@@ -58,15 +58,14 @@ searchFormElement.addEventListener("submit", handleSearchSubmit);
 
 function displayForecast() {
   let forecast = document.querySelector("#forecast");
-
   let days = ["Thurs", "Fri", "Sat", "Sun", "Mon"];
-  let forecastHtml = "";
 
+  let forecastHtml = `<div class="row">`;
   days.forEach(function (day) {
     forecastHtml =
       forecastHtml +
       `
-  <div class="weather-forecast-day">
+  <div class="col weather-forecast-day">
           <div class="weather-forecast-date">${day}</div>
           <div class="weather-forecast-icon">⛅</div>
           <div class="weather-forecast-temperatures">
@@ -76,11 +75,12 @@ function displayForecast() {
             <div class="weather-forecast-temperature-min">12°</div>
           </div>
         </div>
-      </div>
+
  `;
   });
 
-  forecastElement.innerHTML = forecastHtml;
+  forecastHtml = forecastHtml + `</div>`;
+  forecast.innerHTML = forecastHtml;
 }
 
 searchCity("Manitou Springs");
